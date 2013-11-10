@@ -5,8 +5,8 @@ Deadsimple desktop application skeleton using only bash,nc and a webbrowser
 
 ### Why is this handy ###
 
-Instead of fiddling with gui toolkits, textmode interfaces, c/c++, you can just bash + html for
-rapid prototyping or interfacing with commandline-stuff.
+Just use bash and html instead of fiddling with gui toolkits, textmode interfaces, c/c++.
+Great for rapid prototyping or interfacing with commandline-stuff.
 
 ### Features ###
 
