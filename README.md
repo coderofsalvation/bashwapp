@@ -33,10 +33,10 @@ See? It started a miniwebserver, and if you'll see the image below if you surf t
 
 ### Dependancies ###
 
-There are little dependancies, best is to have a linux system:
+There are little dependancies, best is to have a linux system, because then the following is already installed in most cases:
 
-* a linux system bash (99% this is the case)
-* nc (99% this is the case)
+* a linux system bash
+* nc
 * browser
 
 In theory this could also work on windows using cygwin or a standalone bash-binary.
