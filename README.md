@@ -31,6 +31,10 @@ See? It started a miniwebserver, and if you'll see the image below if you surf t
 
 <img src="http://www.zimagez.com/full/054f5158d9b0bbef329a618ec91320d4d7a56190231e59806924c0fb25bf0a9d6bd71c1e3111a3cab24808e98069453daba8b15b903973e3.php"/>
 
+### Tips ###
+
+To get simple web<->bashscript interfacing going on (getargs/forms) check [here](http://pastie.org/8470129). Actually you can handle webstuff using any commandline utility you like.
+
 ### Dependancies ###
 
 There are little dependancies, best is to have a linux system, because then the following is already installed in most cases:
