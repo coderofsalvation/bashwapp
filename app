@@ -20,11 +20,12 @@ start(){
 }
 
 onUrl(){
-  method="$1"; url="$2"; tmpfile="$3"; file="html$(echo "$url" | sed 's/?.*//g')"
+  method="$1";  url="$(echo "$2" | sed 's/?.*//g')"; args="$(echo "$2" | sed 's/.*?//g;s/&/\n/g')"
+  tmpfile="$3"; file="html$url"
   
   case $url in
 
-    /)        serveFile "html/index.html" "$1" "$2" "$3"
+    /)        serveFile "html/index.html" "$method" "$url" "$args" "$tmpfile"
               ;;
 
     /rest)    echo '{"code":0, "message": "'$(date)'" }'
@@ -33,7 +34,8 @@ onUrl(){
     /log)     echo "<html><body><pre>$(tail -n15 "$3.log")</pre></body></html>"
               ;;
 
-    *)        [[ -f "$file" ]] && serveFile "$1" "$2" "$3" || serveFile "html/index.html" "$1" "$2" "$3"
+    *)        [[ -f "$file" ]] && serveFile "$file" "$method" "$url" "$args" "$tmpfile" || 
+                echo "bashwapp> $file not found"
               ;;
   esac
 }
