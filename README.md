@@ -33,7 +33,7 @@ See? It started a miniwebserver, and if you'll see the image below if you surf t
 
 ### Tips ###
 
-To get simple web<->bashscript interfacing going on (getargs/forms) check [here](http://pastie.org/8470154). Actually you can handle webstuff using any commandline utility you like.
+The `app`-bashscript looks for a folder `html`. To get simple web<->bashscript interfacing going on (getargs/forms) run `rm html; cp -R html.skeleton html`.
 
 ### Dependancies ###
 

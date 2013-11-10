@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>My App</title>
+  </head>
+
+  <body>
+    <H1>Your App</h1> 
+    <div>
+      this is just an startingpoint to easily interface between desktop browserapps and CLI/bash 
+    </div>
+    <div id="wrapper">
+      <form method="GET" action="/">
+        <input type="hidden" name="action" value="run"/>
+      <p>
+        <label>Arg1:</label>
+        <input type="text" name="arg1" value="%arg1%">
+      <p>
+      <input type="submit" value="execute"/>
+    </div>
+
+    <p>
+      <!--output-->
+    </p>
+
+    <script type="text/javascript">
+      function loadfile(filename, filetype){
+       if (filetype=="js"){ //if filename is a external JavaScript file
+        var fileref=document.createElement('script')
+        fileref.setAttribute("type","text/javascript")
+        fileref.setAttribute("src", filename)
+       }
+       else if (filetype=="css"){ //if filename is an external CSS file
+        var fileref=document.createElement("link")
+        fileref.setAttribute("rel", "stylesheet")
+        fileref.setAttribute("type", "text/css")
+        fileref.setAttribute("href", filename)
+       }
+       if (typeof fileref!="undefined")
+        document.getElementsByTagName("head")[0].appendChild(fileref)
+      }
+      // *FIXME* UGLY HACK: lazy including of files (else netcat will miss requests)
+      // (netcat stops listening to the port when processing a request)
+      var delay = 200; var i = 0;
+      ++i; setTimeout( function(){ loadfile("js/core.js", "js"); }, delay*i ); 
+      ++i; setTimeout( function(){ loadfile("css/style.css", "css"); }, delay*i );
+    </script>
+	
+  </body>
+</html>

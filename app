@@ -20,22 +20,32 @@ start(){
 }
 
 onUrl(){
-  method="$1"; url="$2"; tmpfile="$3"; file="html$url"
+  method="$1"; url="$2"; tmpfile="$3"; file="html$(echo "$url" | sed 's/?.*//g')"
   
   case $url in
-    /REST)    echo '{"code":0, "message": "'$(date)'" }'
+
+    /)        serveFile "html/index.html" "$1" "$2" "$3"
               ;;
 
-    /)        cat html/index.html
+    /rest)    echo '{"code":0, "message": "'$(date)'" }'
               ;;
 
     /log)     echo "<html><body><pre>$(tail -n15 "$3.log")</pre></body></html>"
               ;;
 
-    *)        [[ -f "$file" ]] && cat "$file" || onUrl "$1" "/" "$3" # redirect     
+    *)        [[ -f "$file" ]] && serveFile "$1" "$2" "$3" || serveFile "html/index.html" "$1" "$2" "$3"
               ;;
   esac
 }
+
+serveFile(){
+  file="$1"; [[ ! -f "$file" ]] && echo "file $file not found" && return 1
+  if [[ -f "$file.handler" ]]; then                      # and if a file(.handler) file is found
+    echo "cat $file | $file.handler $2 $3 $4" >> $4.log
+    cat "$file" | $file.handler "$2" "$3" "$4" 2>&1      # output the file and filter using handler
+  else cat "$file"; fi # or just output the file (images/css/eg)
+}
+
 
 cleanup(){
   [[ -f "$TMPFILE" ]] && rm "$TMPFILE"

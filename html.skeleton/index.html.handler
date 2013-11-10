@@ -1,0 +1,25 @@
+#!/bin/bash
+source html/functions.bash
+
+page="$(cat - )"
+getargs="$(echo "$2" | grep "?" | sed 's/.*?//g;s/&/\n/g')"
+
+# default template var/values
+arg1="ls /tmp"
+
+# get 'action' GET-variable
+action="$(getArg "action" "$getargs")"
+
+# lets handle things
+case $action in
+
+  run)          arg1="$(getArg "arg1" "$getargs")"
+                output="$(echo "arg1 = $arg1"; ${arg1} 2>&1)"
+                echo "$page" | \
+                replace '<!--output-->' "<pre>$output</pre>" | \  # use this or big chunks of textdata
+                sed "s|%arg1%|$arg1|g"                            # use this for minor replacements
+                ;;
+
+  *)            echo "$page" | sed "s|%arg1%|$arg1|g"
+                ;;
+esac 
