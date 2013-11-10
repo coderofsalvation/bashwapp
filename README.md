@@ -5,9 +5,12 @@ Deadsimple desktop application skeleton using only bash,nc and a webbrowser
 
 ### Why is this handy ###
 
-Well for rapid desktop application development.
-Instead of fiddling with gui toolkits, c/c++, or with webservers, you can just use this
-shellscript which serves htmlfiles to your local browser.
+* To have a html/css frontend for bash
+* to aid rapid desktop application development.
+
+Instead of fiddling with gui toolkits, textmode interfaces, c/c++, you can just use (this)
+bashscript (the best swiss armyknife out there).
+It can easily serve htmlfiles to your local browser to interact with bash.
 
 ### How does it work ###
 
@@ -37,3 +40,7 @@ There are little dependancies, best is to have a linux system:
 * browser
 
 In theory this could also work on windows using cygwin or a standalone bash-binary.
+
+### Credits ###
+
+* bootstrap template from startbootstrap.com
