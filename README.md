@@ -33,7 +33,7 @@ See? It started a miniwebserver, and if you'll see the image below if you surf t
 
 ### Tips ###
 
-To get simple web<->bashscript interfacing going on (getargs/forms) check [here](http://pastie.org/8470129). Actually you can handle webstuff using any commandline utility you like.
+To get simple web<->bashscript interfacing going on (getargs/forms) check [here](http://pastie.org/8470133). Actually you can handle webstuff using any commandline utility you like.
 
 ### Dependancies ###
 
