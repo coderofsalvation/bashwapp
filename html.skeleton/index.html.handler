@@ -2,21 +2,18 @@
 source "html/functions.bash"
 page="$(cat - )"; method="$1"; url="$2"; args="$3"; logfile="$4.log"
 
-# default template var/values
-arg1="$(getArg "arg1" "$args")"; [[ ${#arg1} == 0 ]] && arg1="ls /tmp"
-
-templatify(){
-  cat - | sed "s|%arg1%|$arg1|g"
-}
+# declare variables, and initialize them with a default, or a GET webargument (if received from form)
+initArg "$args" "action"      ""
+initArg "$args" "directory"   "/tmp"
+initArg "$args" "cmd"         "ls -la"
 
 # lets handle things
-action="$(getArg "action" "$args")"
-case $action in
+case "${args["action"]}" in
 
-  run) 
-                output="$(echo "arg1 = $arg1"; ${arg1} 2>&1)"
-                # poor man's template engine: sed for small search/replace, and replace for big chunks of text
-                echo "$page" | replace '<!--output-->' "<pre>$output</pre>" 
+  run)          cmd="${args["cmd"]}"; 
+                directory="${args["directory"]}" 
+                output="$( ${cmd} "$directory" 2>&1)"
+                echo "$page" | replace '<!--output-->' "<div class='unit span-grid console'><pre>$output</pre></div>"
                 ;;
 
   *)            echo "$page" 
