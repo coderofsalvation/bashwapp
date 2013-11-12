@@ -31,11 +31,7 @@ Well just run ./app and you'll see something like this:
 <br><br>
 See? It started a miniwebserver, and if you'll see the image below if you surf to http://localhost:8000:
 
-<br><hr>
-<img src="http://www.zimagez.com/full/0f91b9ba62432d65329a618ec91320d478a1ba67665b13986924c0fb25bf0a9d6bd71c1e3111a3ca827f93f809429fe5502668f0e4ccbb99.php"/>
-
-<br><hr>
-<img src="http://www.zimagez.com/full/054f5158d9b0bbef329a618ec91320d4d7a56190231e59806924c0fb25bf0a9d6bd71c1e3111a3cab24808e98069453daba8b15b903973e3.php"/>
+<a href="http://www.zimagez.com/full/cf38438a12e31833329a618ec91320d4ebae2e107ccb25a76924c0fb25bf0a9d2353c0c2c4e1fd0bb0884cd314a350237befbd0767d5372e.php" target="_blank"><img style="width:50%" src="http://www.zimagez.com/full/cf38438a12e31833329a618ec91320d4ebae2e107ccb25a76924c0fb25bf0a9d2353c0c2c4e1fd0bb0884cd314a350237befbd0767d5372e.php"/></a>
 
 ### Tips ###
 
