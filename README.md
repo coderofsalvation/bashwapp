@@ -47,6 +47,15 @@ There are little dependancies, best is to have a linux system, because then the 
 
 In theory this could also work on windows using cygwin or a standalone bash-binary.
 
+### Limitations ###
+
+Singlepage application are adviced since inclusion of external files is problematic. Netcat (nc) runs in a bash while-loop which 
+causes small breaks in listening to the socket. Therefore, when a browser rapidly fires parallel requests, it'll probably not serve all files well.
+
+### Applications made with bashwapp ###
+
+* [Sample Multishotifier](https://github.com/coderofsalvation/sample-multi-shotifier)
+
 ### Credits ###
 
 * bootstrap template from startbootstrap.com
