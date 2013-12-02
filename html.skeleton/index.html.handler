@@ -1,11 +1,11 @@
 #!/bin/bash
-source "html/functions.bash"
 page="$(cat - )"; method="$1"; url="$2"; args="$3"; logfile="$4.log"
+source "html/functions.bash"
 
 # declare variables, and initialize them with a default, or a GET webargument (if received from form)
-initArg "$args" "action"      ""
-initArg "$args" "directory"   "/tmp"
-initArg "$args" "cmd"         "ls -la"
+initarg "action"      ""
+initarg "directory"   "/tmp"
+initarg "cmd"         "ls -la"
 
 # lets handle things
 case "${args["action"]}" in
@@ -13,7 +13,7 @@ case "${args["action"]}" in
   run)          cmd="${args["cmd"]}"; 
                 directory="${args["directory"]}" 
                 output="$( ${cmd} "$directory" 2>&1)"
-                echo "$page" | replace '<!--output-->' "<div class='unit span-grid console'><pre>$output</pre></div>"
+                echo "$page" | fetch # replace '<!--output-->' "<div class='unit span-grid console'><pre>$output</pre></div>"
                 ;;
 
   *)            echo "$page" 

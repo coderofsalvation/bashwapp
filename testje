@@ -1,0 +1,9 @@
+#!/bin/bash
+
+mkfifo fifo
+sleep 1000000 > fifo & # quickndirty workaround for keeping the pipe open
+
+cat fifo | nc -v -l 9999 | while read line; do 
+  echo "reply=$line"
+  echo "hoi" > fifo
+done

@@ -1,13 +1,13 @@
 declare -A args    # array holding shared bash/html/formvars
 
-initArg(){ # this functions adds a variable to args, and initializes it with a formGET / or default value
-  webargs="$1"; var="$2"; defvalue="$3";
+initarg(){ # this functions adds a variable to args, and initializes it with a formGET / or default value
+  webargs="$args"; var="$1"; defvalue="$2";
   args["$var"]="$(getArg "$var" "$webargs")"
   [[ ${args["$var"]} == "" ]] && args["$var"]="$defvalue"
 }
 
-getArg(){ # this function parses a http query string and gets the value of a key
-  key="$1"; getargs="$2"
+getarg(){ # this function parses a http query string and gets the value of a key
+  key="$1"; getargs="$args"
   echo "$getargs" | while read line; do
     key="$(echo "$line" | sed 's/=.*//g')"
     value="$(echo "$line" | sed 's/.*=//g' | urldecode)"
@@ -32,12 +32,14 @@ replace(){ # quick n dirty multiline search/replace
   done
 }
 
-templatify(){ # quick n dirty inline search/replace using sed (note dont use '|' in replace strings)
-  output="$(cat -)"
+fetch(){
+  IFS=''; cat - | while read line; do 
   for k in "${!args[@]}"; do
     [[ "$k" == "0" ]] && continue;
-    value="$( echo "${args["$k"]}" | sed -e 's/[\/&]/\\&/g' | sed "s/'/\"/g" )"
-    output="$( echo "$output" | sed "s|%$k%|$value|g" )"
-  done; 
-  echo "$output"
+      value="$( echo "${args["$k"]}" | sed -e 's/[\/&]/\\&/g' | sed "s/'/\"/g" )"
+      eval "$k="$value";"
+    done; 
+    line="$(eval "echo \"$( echo "$line" | sed 's/"/\\"/g')\"")"; # process bash in snippet
+    echo "$line"
+  done
 }
