@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 mkfifo fifo
 sleep 1000000 > fifo & # quickndirty workaround for keeping the pipe open
 
