@@ -13,6 +13,7 @@ Great for rapid prototyping or interfacing with commandline-stuff.
 * based on [bashweb](https://gist.github.com/coderofsalvation/7399049/)
 * quickndirty-easy-peasy lightweight httpserver
 * direct html-interface to the shell
+* bash (html) templates 
 
 ### How does it work ###
 
@@ -49,7 +50,8 @@ In theory this could also work on windows using cygwin or a standalone bash-bina
 
 ### Limitations ###
 
-Singlepage application are adviced since inclusion of external files is problematic. Netcat (nc) runs in a bash while-loop which 
+Well ofcoarse security..only use this for quick prototyping or personal use.
+Singlepage application are adviced since inclusion of external files is unpredictable with netcat. Netcat (nc) runs in a bash while-loop which 
 causes small breaks in listening to the socket. Therefore, when a browser rapidly fires parallel requests, it'll probably not serve all files well.
 
 ### Applications made with bashwapp ###
