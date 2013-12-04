@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>$APPNAME</title>
+
+    <style type="text/css">
+      /* why is this css here and not in seperate file? because netcat cannot always handle simultanious browserrequests at the same time..so lets keep things lowprofile */
+
+      /* toast.css */
+      
+      *{margin:0;padding:0;position:relative;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}.container{max-width:960px;margin:0 auto;padding:0 30px;padding:0 1.5rem;}.grid{margin-left:-3%;max-width:105%;}.unit{display:inline-block;*display:inline;*zoom:1;vertical-align:top;margin-left:3%;margin-right:-.25em;overflow:hidden;*overflow:visible;}.unit.demo{background-color:#fff8eb;height:48px;height:3rem;margin-bottom:24px;margin-bottom:1.5rem;}.span-grid{width:97%;}.one-of-two{width:47%;}.one-of-three{width:30.36%;}.two-of-three{width:63.666666666%;}.one-of-four{width:22.05%;}.three-of-four{width:72%;}.one-of-five{width:17.07%;}.two-of-five{width:37%;}.three-of-five{width:57%;}.four-of-five{width:77%;}@media screen and (max-width: 650px) {.grid{margin-left:0;max-width:none;}.unit{width:auto;margin-left:0;display:block;}}p,.p,ul,ol,hr,table,form,pre,h1,.alpha,h2,.beta{margin-bottom:30px;margin-bottom:1.5rem;}h1,.alpha{font-size:60px;font-size:3rem;font-weight:700;line-height:1;}h2,.beta{font-size:30px;font-size:1.5rem;font-weight:400;line-height:2;}h3,.alpha{font-size:20px;font-size:1rem;font-weight:700;}hr{border:none;border-bottom:1px solid rgba(0,0,0,.1);margin-top:-1px;}html{font:125%/1.5 Helvetica Neue,Helvetica,Arial,sans-serif;}@media screen and (max-width: 650px) {html{font-size:100%;}}
+      
+      /* general style */
+      
+      html { padding:1.0em; font: 100%/1.5 Helvetica Neue,Helvetica,Arial,sans-serif;
+        background: #f5f6f6; /* Old browsers */
+        background: -moz-linear-gradient(top, #f5f6f6 0%, #dbdce2 21%, #b8bac6 49%, #dddfe3 80%, #f5f6f6 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f5f6f6), color-stop(21%,#dbdce2), color-stop(49%,#b8bac6), color-stop(80%,#dddfe3), color-stop(100%,#f5f6f6)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, #f5f6f6 0%,#dbdce2 21%,#b8bac6 49%,#dddfe3 80%,#f5f6f6 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, #f5f6f6 0%,#dbdce2 21%,#b8bac6 49%,#dddfe3 80%,#f5f6f6 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top, #f5f6f6 0%,#dbdce2 21%,#b8bac6 49%,#dddfe3 80%,#f5f6f6 100%); /* IE10+ */
+        background: linear-gradient(to bottom, #f5f6f6 0%,#dbdce2 21%,#b8bac6 49%,#dddfe3 80%,#f5f6f6 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f6f6', endColorstr='#f5f6f6',GradientType=0 ); /* IE6-9 */
+      }
+      h1 a{ color:#555}
+      input,button,select { font-size: 16px; }
+      label { width:38%; display:block; float:left }
+      input { width:50%; margin-bottom: 0.8em; }
+      input[type=number] { width:80px; }  
+      input[type=checkbox] { width:20px }  
+      div.console { border: 1px solid #888; overflow:scroll; margin-bottom:15px }
+      div.console pre {
+        font-size: 11px;
+        color: #CCC;
+      }
+      input[type=submit], button { padding:1.0em }
+      div.console pre, div.console{ background-color:#555; }
+    </style>
+  </head>

@@ -1,21 +1,16 @@
 #!/bin/bash
-page="$(cat - )"; method="$1"; url="$2"; args="$3"; logfile="$4.log"
-source "html/functions.bash"
 
-# declare variables, and initialize them with a default, or a GET webargument (if received from form)
-initarg "action"      ""
-initarg "directory"   "/tmp"
-initarg "cmd"         "ls -la"
+APPNAME="Your App"
 
-# lets handle things
-case "${args["action"]}" in
+# initialize variables in case GET webargument didnt do this already 
+[[ ! -n $cmd       ]] && cmd="ls"
+[[ ! -n $directory ]] && directory="/tmp"
 
-  run)          cmd="${args["cmd"]}"; 
-                directory="${args["directory"]}" 
-                output="$( ${cmd} "$directory" 2>&1)"
-                echo "$page" | fetch # replace '<!--output-->' "<div class='unit span-grid console'><pre>$output</pre></div>"
-                ;;
+case $action in 
 
-  *)            echo "$page" 
-                ;;
-esac | templatify
+  run)    output="$( cd $directory; ${cmd} )" # assign template variable
+          ;;
+
+  *)      # nothing to do default  
+          ;;
+esac
