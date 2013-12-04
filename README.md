@@ -10,10 +10,10 @@ Great for rapid prototyping or interfacing with commandline-stuff.
 
 ### Features ###
 
-* based on [bashweb](https://gist.github.com/coderofsalvation/7399049/)
 * quickndirty-easy-peasy lightweight httpserver
 * direct html-interface to the shell
 * bash (html) templates 
+* portable / no compilation
 
 ### How does it work ###
 
