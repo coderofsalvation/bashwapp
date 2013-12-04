@@ -35,6 +35,7 @@ TMPFILE="/tmp/.bashwapp.$(whoami)"
 PORT=8000
 pid=$$
 CLIENT=$TMPFILE.fifo 
+MYPATH="$(dirname "$(readlink -f "$0")" )"
 
 start(){
   [[ -n "$1" ]] && PORT="$1"; TMPFILE="$TMPFILE.$PORT"; 
@@ -105,7 +106,8 @@ httpheader(){
 serveFile(){
   file="$1"; CLIENT="$2"
   [[ ! -f "$file" ]] && console "=>" "file $file not found" && httpheader 404 > $CLIENT && return 1
-  [[ -f "$file.handler" ]] && source $file.handler && console "=>" "source $file.handler"
+  [[ -f "$file.handler" ]] && source $file.handler && console "=>" "source $file.handler" 
+  cd "$MYPATH"; # return for sure
   console "=>" "serving $file"
   cat "$file" | fetch > $TMPFILE.output 
   { httpheader 200 "$TMPFILE.output"; cat "$TMPFILE.output"; } > $CLIENT 
