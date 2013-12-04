@@ -32,7 +32,7 @@ Well just run ./app and you'll see something like this:
 <br><br>
 See? It started a miniwebserver, and if you'll see the image below if you surf to http://localhost:8000:
 
-<a href="http://www.zimagez.com/full/cf38438a12e31833329a618ec91320d4ebae2e107ccb25a76924c0fb25bf0a9d2353c0c2c4e1fd0bb0884cd314a350237befbd0767d5372e.php" target="_blank"><img style="width:50%" src="http://www.zimagez.com/full/cf38438a12e31833329a618ec91320d4ebae2e107ccb25a76924c0fb25bf0a9d2353c0c2c4e1fd0bb0884cd314a350237befbd0767d5372e.php"/></a>
+<img src="https://raw.github.com/coderofsalvation/bashwapp/master/screenshot.png"/>
 
 ### Tips ###
 
