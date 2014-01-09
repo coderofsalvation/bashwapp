@@ -34,7 +34,7 @@
 TMPFILE="/tmp/.bashwapp.$(whoami)"
 PORT=8000
 pid=$$
-CLIENT=$TMPFILE.fifo 
+CLIENT=$TMPFILE.fifo.$(whoami)
 MYPATH="$(dirname "$(readlink -f "$0")" )"
 
 start(){
@@ -119,6 +119,7 @@ urldecode(){
 }
 
 cleanup(){
+  ls $TMPFILE.* &>/dev/null && rm $TMPFILE.*
   echo "server stopped"
   exit 0
 }
