@@ -42,7 +42,7 @@ start(){
   which xdg-open &>/dev/null && xdg-open "http://localhost:$PORT" || echo "[x] surf to http://localhost:$PORT"
   console "" "server started @ localhost:$PORT"
   [[ ! -p $CLIENT ]] && mkfifo $CLIENT 
-  while [[ -p $CLIENT ]]; do cat $CLIENT | nc -v -l $PORT 2>&1 | onRequest; done
+  while [[ -p $CLIENT ]]; do cat $CLIENT | nc -l -p $PORT 2>&1 | onRequest; done
   rm $TMPFILE.*
 }
 
